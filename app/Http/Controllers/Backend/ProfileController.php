@@ -38,10 +38,10 @@ class ProfileController extends Controller
             $user->email = $request->input('email');
             $user->save();
 
-            flash()->success('Profile completed successfully.');
+            toastr()->success('Profile completed successfully.');
             return redirect()->back();
         } catch (\Exception $e) {
-            flash()->error($e->getMessage());
+            toastr()->error($e->getMessage());
             return redirect()->back();
         }
     }
@@ -57,10 +57,10 @@ class ProfileController extends Controller
                 'password' => bcrypt($request->password)
             ]);
 
-            flash()->success('Password updated successfully.');
+            toastr()->success('Password updated successfully.');
             return redirect()->back();
         } catch (\Exception $e) {
-            flash()->error($e->getMessage());
+            toastr()->error($e->getMessage());
             return redirect()->back();
         }
     }
